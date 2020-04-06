@@ -1,4 +1,4 @@
-##一.手机越狱
+## 一.手机越狱
 1.备份数据
 
 2.进入DFU模式（以iPhone 6 Plus为例）
@@ -20,7 +20,7 @@
 	(5)AFC2: 用于访问iOS设备文件系统（Apple File Conduit/afc2add
 	(6)adv-cmds:用于cycript(混合语法语言)命令行调试工具
 	
-##二.Mac工具安装
+## 二.Mac工具安装
 
 1.iFunBox:用于在Mac端浏览iPhone文件系统
 
@@ -32,7 +32,7 @@
 
 5.Clutch:用于脱壳
 
-##三.OpenSSH远程登录
+## 三.OpenSSH远程登录
 
 1.wifi环境
 
@@ -70,7 +70,7 @@
 	set meta-flag on 
 	set input-meta on
 	
-##四.Cycript
+## 四.Cycript
 1.基本用法
 
 	//开启
@@ -92,17 +92,17 @@
 	//搜索关键词
 	ps –A | grep 关键词
 	
-##五.class-dump
+## 五.class-dump
 1.导出头文件
 
 	class-dump  -H  Mach-O文件路径  -o  输出文件目录
 	
-##六.Hopper Disassmbler
+## 六.Hopper Disassmbler
 1.常用快捷键
 
 	找出指定方法：Shift + Option + X
 	
-##七.Mach-O文件
+## 七.Mach-O文件
 1.文件包含的类型
 
 	1.MH_OBJECT
@@ -150,7 +150,7 @@
 	
 4.dyld用于加载MH_EXECUTE、MH_DYLIB、MH_BUNDLE类型的Mach-O文件
 
-##八.脱壳
+## 八.脱壳
 1.工具:
 	
 	Clutch、dumpdecrypted、CrackerXI(我采用第三个工具)
@@ -159,7 +159,7 @@
 	1.查看Mach-O文件Load Commands中的LC_ENCRYPTION_INFO的Crypt ID 如果是0代表已脱壳或者未加密
 	2.通过指令 otool -l 可执行文件路径 | grep crypt 来查看
 	
-##九.Clutch
+## 九.Clutch
 1.安装地址： https://github.com/KJCracks/Clutch/releases
 2.拷贝Clutch可执行工具放到 /usr/bin 目录下
 3.Permission denied: chmod +x 可执行文件路径
@@ -171,13 +171,13 @@
 	2.脱壳
 		Clutch -d APP序号(或BundleId)	
 
-##十.theos
+## 十.theos
 
 
-##十一.动态调试
+## 十一.动态调试
 
 
-##十二.签名机制
+## 十二.签名机制
 
 1.Mac设备的公钥:CertificateSigningRequest.certSigningRequest
 
