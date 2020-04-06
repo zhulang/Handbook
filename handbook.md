@@ -185,6 +185,21 @@
 
 3.{.cer证书+ devices + appid + entitlements} + Apple私钥 ->.mobileprovision文件
 
+4.重签名
+
+	1.下载mobileprovision文件命名为embedded
+	2.将embedded.mobileprovision文件移动到 脱壳 后的 youappname.app包内，替换原来的embedded.mobileprovision文件
+	3.替换后重签名
+	  a.查找证书ID
+	  	security find-identity -v -p codesigning
+		
+		//5BC75890B445308558DC25D50087453A6853EB16
+	   b.抽取entitlements文件执行以下两行
+	   	security cms -D -i embedded.mobileprovision > temp.plist
+		/usr/libexec/PlistBuddy -x -c 'Print :Entitlements' temp.plist > entitlements.plist
+	   c.签名
+	   	codesign -fs 证书ID --entitlements xxx.plist xxx.app
+
 
 
 
