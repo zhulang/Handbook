@@ -200,6 +200,29 @@ theos是构建tweak的工具
 3.签名💰准备好mobilepro
 	
 
+4.重签名
+
+	1.下载mobileprovision文件命名为embedded
+	2.将embedded.mobileprovision文件移动到 脱壳 后的 youappname.app包内，替换原来的embedded.mobileprovision文件
+	3.替换后重签名
+	  a.查找证书ID
+	  	security find-identity -v -p codesigning
+		
+	   b.抽取entitlements文件执行以下两行
+	   	security cms -D -i embedded.mobileprovision > temp.plist
+		/usr/libexec/PlistBuddy -x -c 'Print :Entitlements' temp.plist > entitlements.plist
+		
+	   c.将entitlements.plist拖到Payload包中
+	   
+	   d.终端命令行cd到Payload目录中
+	   
+	   e.签名
+	   	codesign -fs 证书ID --entitlements xxx.plist xxx.app
+		
+	   f.删除plist文件
+	   
+	   g.压缩Payload包
+
 
 
 
