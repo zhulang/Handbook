@@ -14,7 +14,7 @@
 5.安装插件
 	
 	(1)openSSH:用于Mac和iPhone连接访问
-	(2)Reveal2Loader:用于析构APP图形界面
+	(2)Reveal2Loader:用于析构APP图形界面(在通用->设置 中将Enabled Applications打开)
 	(3)AppList:用于读取iPhone安装的软件列表
 	(4)AppSync Unfified:安装ipa包
 	(5)AFC2: 用于访问iOS设备文件系统（Apple File Conduit/afc2add
@@ -91,4 +91,91 @@
 	
 	//搜索关键词
 	ps –A | grep 关键词
+	
+##五.class-dump
+1.导出头文件
+
+	class-dump  -H  Mach-O文件路径  -o  输出文件目录
+	
+##六.Hopper Disassmbler
+1.常用快捷键
+
+	找出指定方法：Shift + Option + X
+	
+##七.Mach-O文件
+1.文件包含的类型
+
+	1.MH_OBJECT
+		目标文件（.o）
+		静态库文件(.a），静态库其实就是N个.o合并在一起
+	
+	2.MH_EXECUTE：可执行文件
+		.app/xx
+	
+	3.MH_DYLIB：动态库文件
+		.dylib
+		.framework/xx
+	
+	4.MH_DYLINKER：动态链接编辑器
+		/usr/lib/dyld
+	
+	5.MH_DSYM：存储着二进制文件符号信息的文件
+		.dSYM/Contents/Resources/DWARF/xx（常用于分析APP的崩溃信息）
+		
+2.内部结构
+
+	1.HEADER 
+	文件类型、目标架构类型等
+	
+	2.LOAD COMMANDS
+	描述文件在虚拟内存中的逻辑结构、布局
+	
+	3.RAW SEGMENT DATA
+	在Load commands中定义的Segment的原始数据
+	
+3.相关工具
+
+	1.命令行工具
+	file：查看Mach-O的文件类型
+	常用命令：file 文件路径
+	
+	2.otool：查看Mach-O特定部分和段的内容
+	
+	3.lipo：常用于多架构Mach-O文件的处理
+	查看架构信息：lipo  -info  文件路径
+	导出某种特定架构：lipo  文件路径  -thin  架构类型  -output  输出文件路径
+	合并多种架构：lipo  文件路径1  文件路径2  -output  输出文件路径
+	
+	4.GUI工具:MachOView
+	
+4.dyld用于加载MH_EXECUTE、MH_DYLIB、MH_BUNDLE类型的Mach-O文件
+
+##八.脱壳
+1.工具:
+	
+	Clutch、dumpdecrypted、CrackerXI(我采用第三个工具)
+2.是否脱壳
+
+	1.查看Mach-O文件Load Commands中的LC_ENCRYPTION_INFO的Crypt ID 如果是0代表已脱壳或者未加密
+	2.通过指令 otool -l 可执行文件路径 | grep crypt 来查看
+	
+##九.Clutch
+1.安装地址： https://github.com/KJCracks/Clutch/releases
+2.拷贝Clutch可执行工具放到 /usr/bin 目录下
+3.Permission denied: chmod +x 可执行文件路径
+4.常用命令
+
+	1.列出已安装APP
+		Clutch -i
+	
+	2.脱壳
+		Clutch -d APP序号(或BundleId)	
+
+##十.theos
+
+
+
+
+
+	
 
