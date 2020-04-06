@@ -172,18 +172,33 @@
 		Clutch -d APP序号(或BundleId)	
 
 ## 十.theos
+theos是构建tweak的工具
+
+1.新建tweak项目
+	
+	在theos安装后，命令行
+		nic.pl
 
 
 ## 十一.动态调试
 
 
 ## 十二.签名机制
+1.文件作用描述
 
-1.Mac设备的公钥:CertificateSigningRequest.certSigningRequest
-
-2.Apple developer后台下载.cer证书->{Mac设备的公钥 + Apple私钥 + 签名}
-
-3.{.cer证书+ devices + appid + entitlements} + Apple私钥 ->.mobileprovision文件
+		1.Mac设备的公钥:CertificateSigningRequest.certSigningRequest
+		
+		2.Apple developer后台下载.cer证书->{Mac设备的公钥 + Apple私钥 + 签名}
+		
+		3.{.cer证书+ devices + appid + entitlements} + Apple私钥 ->.mobileprovision文件
+		
+2.常用指令
+ 	
+	1.codesign -f -s 证书ID --entitlements entitlements.plst APP名称.app
+	注释：-f 强制 f和s可以连载一起，比如 -fs
+	
+3.签名💰准备好mobilepro
+	
 
 
 
