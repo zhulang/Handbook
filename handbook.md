@@ -36,10 +36,10 @@
 
 1.wifi环境
 
-		（1）登录ssh root@192.168.0.199 (192.168.0.199iOS设备在局域网里的ip地址)
-		（2）原始密码：alpine
-		（3）修改密码：password 、password mobile
-		（4）删掉之前链接的公钥信息：ssh-keygen -R 服务器IP地址 或 vim ~/.ssh/known_hosts
+	(1)登录ssh root@192.168.0.199 (192.168.0.199iOS设备在局域网里的ip地址)
+	(2)原始密码：alpine
+	(3)修改密码：password 、password mobile
+	(4)删掉之前链接的公钥信息：ssh-keygen -R 服务器IP地址 或 vim ~/.ssh/known_hosts
 		
 2.USB环境
 
@@ -172,6 +172,18 @@
 		Clutch -d APP序号(或BundleId)	
 
 ##十.theos
+
+
+##十一.动态调试
+
+
+##十二.签名机制
+
+1.Mac设备的公钥:CertificateSigningRequest.certSigningRequest
+
+2.Apple developer后台下载.cer证书->{Mac设备的公钥 + Apple私钥 + 签名}
+
+3.{.cer证书+ devices + appid + entitlements} + Apple私钥 ->.mobileprovision文件
 
 
 
