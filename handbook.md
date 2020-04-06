@@ -197,8 +197,12 @@
 	   b.抽取entitlements文件执行以下两行
 	   	security cms -D -i embedded.mobileprovision > temp.plist
 		/usr/libexec/PlistBuddy -x -c 'Print :Entitlements' temp.plist > entitlements.plist
-	   c.签名
+	   c.将entitlements.plist拖到Payload包中
+	   d.终端命令行cd到Payload目录中
+	   e.签名
 	   	codesign -fs 证书ID --entitlements xxx.plist xxx.app
+	   f.删除plist文件
+	   g.压缩Payload包
 
 
 
