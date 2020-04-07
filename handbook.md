@@ -241,6 +241,51 @@ theos是构建tweak的工具
          f.命令行cd到.app包中，对动态库、CydiaSubstrate 重签名
          
          g.用signer对.app进行签名
+         
+5.解压deb
+
+
+6.llvm
+    
+    1.查看编译文件经历的 几个阶段
+        clang -ccc-print-phases main.m
+        
+    2.查看预编译结果
+        clang -E main.m
+        
+    3.词法分析
+        clang -fmodules -E -Xclang -dump-tokens main.m
+    
+    4.语法分析
+        clang -fmodules -fsyntax-only -Xclang -ast-dump main.m
+        
+    5.查看AST树
+    
+    6.中间代码
+        clang -S -emit-llvm main.m  //.ll
+        clang -c -emit-llvm main.m  //.bc
+    
+
+
+7.lldb
+
+    run or r: Launch a process
+
+    step or s: Do a source level single step in the currently selected thread.
+
+    next or n: Do a source level single step over in the currently selected thread.
+
+    si :Do an instruction level single step in the currently selected thread
+
+    ni Do an instruction level single step over in the currently selected thread.
+
+    finish: Step out of the currently selected frame.
+
+    continue or c: 继续运行
+
+    thread until 12: Run until we hit line 12 or control leaves the current function.
+
+    
        
 
 
