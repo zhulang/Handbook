@@ -233,6 +233,14 @@ theos是构建tweak的工具
          b. 将要注入的库拖到可执行文件中
          
          c.insert_dylib @executable_path/动态库名 可执行文件名 --all-yes --weak 新生成可执行文件名
+         
+         d.copy CydiaSubstrate、动态库文件以及embedded.mobileprovision放到.app中
+         
+         e.insall_name_tool -change /library/Frameworks/CydiaSubstrate.framework/CydiaSubstrate @loader_path/CydiaSubstrate 动态库文件
+         
+         f.命令行cd到.app包中，对动态库、CydiaSubstrate 重签名
+         
+         g.用signer对.app进行签名
        
 
 
