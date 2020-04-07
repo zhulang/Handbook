@@ -222,6 +222,18 @@ theos是构建tweak的工具
 	   f.删除plist文件
 	   
 	   g.压缩Payload包
+       
+       4.查看加载的动态库
+         otool -L Mach-O文件
+         
+       5.动态库注入 (insert_dylib) 
+       
+         a.下载地址：https://github.com/Tyilo/insert_dylib
+         
+         b. 将要注入的库拖到可执行文件中
+         
+         c.insert_dylib @executable_path/动态库名 可执行文件名 --all-yes --weak 新生成可执行文件名
+       
 
 
 
